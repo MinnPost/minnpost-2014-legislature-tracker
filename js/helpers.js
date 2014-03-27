@@ -3,11 +3,11 @@
  * Helpers functions such as formatters or extensions
  * to libraries.
  */
-define('helpers', ['jquery', 'underscore', 'Backbone'],
+define('helpers', ['jquery', 'underscore', 'backbone'],
   function($, _, Backbone) {
 
 
-  
+
   /**
    * Override Backbone's ajax call to use JSONP by default as well
    * as force a specific callback to ensure that server side
@@ -23,7 +23,7 @@ define('helpers', ['jquery', 'underscore', 'Backbone'],
     }
     return Backbone.$.ajax.apply(Backbone.$, options);
   };
-  
+
 
 
   // Create object of methods to use

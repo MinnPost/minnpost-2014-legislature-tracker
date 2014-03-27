@@ -61,7 +61,7 @@
     "returns": "moment"
   },
   "legislature-tracker": {
-    "rname": "legislature-tracker",
+    "rname": "LT",
     "js": [
       "legislature-tracker/dist/legislature-tracker.min"
     ],
@@ -69,5 +69,12 @@
       "legislature-tracker/dist/legislature-tracker.min"
     ],
     "returns": "LT"
+  },
+  "tabletop": {
+    "rname": "Tabletop",
+    "js": [
+      "tabletop/src/tabletop"
+    ],
+    "returns": "Tabletop"
   }
 }

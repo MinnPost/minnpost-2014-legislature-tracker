@@ -10,17 +10,23 @@
  * any non-compliant libraries.
  */
 require.config({
+  shim: {
+    'tabletop': {
+      exports: 'Tabletop'
+    }
+  },
   baseUrl: 'js',
   paths: {
     'requirejs': '../bower_components/requirejs/require',
     'text': '../bower_components/text/text',
     'jquery': '../bower_components/jquery/dist/jquery.min',
     'underscore': '../bower_components/underscore/underscore',
-    'Backbone': '../bower_components/backbone/backbone',
+    'backbone': '../bower_components/backbone/backbone',
+    'tabletop': '../bower_components/tabletop/src/tabletop',
     'Ractive': '../bower_components/ractive/build/Ractive-legacy.min',
     'Ractive-events-tap': '../bower_components/ractive-events-tap/Ractive-events-tap.min',
     'moment': '../bower_components/moment/min/moment.min',
-    'legislature-tracker': '../bower_components/legislature-tracker/dist/legislature-tracker.min',
+    'LT': '../bower_components/legislature-tracker/dist/legislature-tracker.min',
     'minnpost-2014-legislature-tracker': 'app'
   }
 });
@@ -28,11 +34,9 @@ require.config({
 
 // Create main application
 define('minnpost-2014-legislature-tracker', [
-  'jquery', 'underscore', 'helpers',
-  'Backbone', 'Ractive', 'Ractive-events-tap'
+  'jquery', 'underscore', 'helpers', 'LT'
 ], function(
-    $, _, helpers,
-    Backbone, Ractive, RactiveEventsTap
+    $, _, helpers, LT
   ) {
 
   // Constructor for app
@@ -50,12 +54,23 @@ define('minnpost-2014-legislature-tracker', [
   _.extend(App.prototype, {
     // Start function
     start: function() {
-
+      this.lt = new LT(_.extend({}, this.options, {
+        el: this.$el
+      }));
     },
 
     // Default options
     defaultOptions: {
-      projectName: 'minnpost-2014-legislature-tracker'
+      projectName: 'minnpost-2014-legislature-tracker',
+      imagePath: '../bower_components/legislature-tracker/dist/images/',
+      tabletopOptions: {
+        parameterize: 'http://gs-proxy.herokuapp.com/proxy?url='
+      },
+      state: 'MN',
+      session: '2013-2014',
+      OSKey: '49c5c72c157d4b37892ddb52c63d06be',
+      eKey: '0AtX8MXQ89fOKdFNaY1Nzc3p6MjJQdll1VEZwSDkzWEE',
+      legImageProxy: 'http://i-mage-proxerific.herokuapp.com/resize?size=100x100&url='
     }
 
   });
