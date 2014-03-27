@@ -167,6 +167,9 @@ define('helpers', ['jquery', 'underscore', 'backbone'],
   };
 });
 
+
+define('text!templates/application.mustache',[],function () { return '<div class="message-container"></div>\n\n<div class="content-container">\n\n</div>\n\n<div class="footnote-container">\n  <div class="footnote">\n    <p>\n      Some code, techniques, and data on <a href="https://github.com/minnpost/minnpost-2014-legislature-tracker" target="_blank">Github</a>.\n      Icons from the Noun Project;\n        <a href="http://thenounproject.com/term/close/14572/" target="_blank">Close by Benny Forsberg</a>;\n        Congress by Martha Ormiston;\n        Energy by NDSTR;\n        Education by Thibault Geffroy;\n        Time by Richard de Vos;\n        Capital by Jonathan Keating;\n        Paper by Tom Schott;\n        Bank by Ilaria Baggio;\n        Group by Alexandra Coscovelnita;\n        Check mark by Spencer Cohen.\n    </p>\n\n  </div>\n</div>\n';});
+
 /**
  * Main application file for: minnpost-2014-legislature-tracker
  *
@@ -195,7 +198,7 @@ require.config({
     'Ractive': '../bower_components/ractive/build/Ractive-legacy.min',
     'Ractive-events-tap': '../bower_components/ractive-events-tap/Ractive-events-tap.min',
     'moment': '../bower_components/moment/min/moment.min',
-    'LT': '../bower_components/legislature-tracker/dist/legislature-tracker.min',
+    'LT': '../bower_components/legislature-tracker/dist/legislature-tracker',
     'minnpost-2014-legislature-tracker': 'app'
   }
 });
@@ -203,9 +206,10 @@ require.config({
 
 // Create main application
 define('minnpost-2014-legislature-tracker', [
-  'jquery', 'underscore', 'helpers', 'LT'
+  'jquery', 'underscore', 'helpers', 'LT',
+  'text!templates/application.mustache'
 ], function(
-    $, _, helpers, LT
+    $, _, helpers, LT, tApplication
   ) {
 
   // Constructor for app
@@ -214,9 +218,9 @@ define('minnpost-2014-legislature-tracker', [
     this.el = this.options.el;
     if (this.el) {
       this.$el = $(this.el);
+      this.$el.html(tApplication);
       this.$content = this.$el.find('.content-container');
     }
-    this.start();
   };
 
   // Extend with custom methods
@@ -224,7 +228,7 @@ define('minnpost-2014-legislature-tracker', [
     // Start function
     start: function() {
       this.lt = new LT(_.extend({}, this.options, {
-        el: this.$el
+        el: this.$content
       }));
     },
 
