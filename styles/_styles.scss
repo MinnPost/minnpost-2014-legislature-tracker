@@ -85,8 +85,41 @@ body .node-unpublished {
       background-image: image-url('loading.gif');
     }
 
+    // Make the background a bit more transparent
     .categories-container {
-      background-image: image-url('capitol-bg.png');
+      background-image: none;
+      position: relative;
+      display: block;
+
+      &::after {
+        background: transparent image-url('capitol-bg.png') top center no-repeat;
+        background-size: 100% 100%;
+        content: "";
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    // Width for sticky menu
+    .stuck {
+
+      .menu-stick-container {
+        max-width: 970px;
+        padding: 0 15px;
+      }
+    }
+
+    // 10 categories
+    .categories-container {
+
+      ul li {
+        width: 20%;
+      }
     }
   }
 
@@ -96,5 +129,18 @@ body .node-unpublished {
 
   // Breakpoints
   @media screen and (max-width: 768px) {
+    .ls .categories-container ul li {
+      width: 33.332%;
+    }
+  }
+  @media screen and (max-width: 530px) {
+    .ls .categories-container ul li {
+      width: 50%;
+    }
+  }
+  @media screen and (max-width: 385px) {
+    .ls .categories-container ul li {
+      width: 100%;
+    }
   }
 }
