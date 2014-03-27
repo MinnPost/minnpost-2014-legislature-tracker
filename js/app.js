@@ -26,7 +26,7 @@ require.config({
     'Ractive': '../bower_components/ractive/build/Ractive-legacy.min',
     'Ractive-events-tap': '../bower_components/ractive-events-tap/Ractive-events-tap.min',
     'moment': '../bower_components/moment/min/moment.min',
-    'LT': '../bower_components/legislature-tracker/dist/legislature-tracker.min',
+    'LT': '../bower_components/legislature-tracker/dist/legislature-tracker',
     'minnpost-2014-legislature-tracker': 'app'
   }
 });
@@ -47,7 +47,6 @@ define('minnpost-2014-legislature-tracker', [
       this.$el = $(this.el);
       this.$content = this.$el.find('.content-container');
     }
-    this.start();
   };
 
   // Extend with custom methods
