@@ -26,7 +26,7 @@
     "returns": "_"
   },
   "backbone": {
-    "rname": "Backbone",
+    "rname": "backbone",
     "js": [
       "backbone/backbone"
     ],
@@ -38,13 +38,6 @@
       "ractive/build/Ractive-legacy.min"
     ],
     "returns": "Ractive"
-  },
-  "ractive-backbone": {
-    "rname": "Ractive-Backbone",
-    "js": [
-      "ractive-backbone/Ractive-Backbone.min"
-    ],
-    "returns": "RactiveBackbone"
   },
   "ractive-events-tap": {
     "rname": "Ractive-events-tap",
@@ -71,7 +64,7 @@
     "returns": "LT"
   },
   "tabletop": {
-    "rname": "Tabletop",
+    "rname": "tabletop",
     "js": [
       "tabletop/src/tabletop"
     ],

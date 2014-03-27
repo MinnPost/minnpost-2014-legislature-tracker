@@ -62,14 +62,14 @@ define('minnpost-2014-legislature-tracker', [
     // Default options
     defaultOptions: {
       projectName: 'minnpost-2014-legislature-tracker',
-      imagePath: '../bower_components/legislature-tracker/dist/images/',
+      imagePath: '../images/',
       tabletopOptions: {
         parameterize: 'http://gs-proxy.herokuapp.com/proxy?url='
       },
       state: 'MN',
       session: '2013-2014',
       OSKey: '49c5c72c157d4b37892ddb52c63d06be',
-      eKey: '0AtX8MXQ89fOKdFNaY1Nzc3p6MjJQdll1VEZwSDkzWEE',
+      eKey: '0AjYft7IGrHzNdE1LbFhMU25zYVdoV0lCVDlDZXI1Tnc',
       legImageProxy: 'http://i-mage-proxerific.herokuapp.com/resize?size=100x100&url='
     }
 

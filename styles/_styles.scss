@@ -25,9 +25,6 @@ body .node-unpublished {
   font-family: $sans-serif-font;
   margin: 1em auto;
 
-
-
-
   .clear {
     clear: both;
   }
@@ -76,11 +73,26 @@ body .node-unpublished {
     }
   }
 
-  
 
-  
+  .ls {
 
-  
+    // Fix some image reference
+    a.permalink {
+      background-image: image-url('link-16x8-black.png');
+    }
+
+    .loading-general span {
+      background-image: image-url('loading.gif');
+    }
+
+    .categories-container {
+      background-image: image-url('capitol-bg.png');
+    }
+  }
+
+
+
+
 
   // Breakpoints
   @media screen and (max-width: 768px) {
