@@ -34,9 +34,10 @@ require.config({
 
 // Create main application
 define('minnpost-2014-legislature-tracker', [
-  'jquery', 'underscore', 'helpers', 'LT'
+  'jquery', 'underscore', 'helpers', 'LT',
+  'text!templates/application.mustache'
 ], function(
-    $, _, helpers, LT
+    $, _, helpers, LT, tApplication
   ) {
 
   // Constructor for app
@@ -45,6 +46,7 @@ define('minnpost-2014-legislature-tracker', [
     this.el = this.options.el;
     if (this.el) {
       this.$el = $(this.el);
+      this.$el.html(tApplication);
       this.$content = this.$el.find('.content-container');
     }
   };
@@ -54,7 +56,7 @@ define('minnpost-2014-legislature-tracker', [
     // Start function
     start: function() {
       this.lt = new LT(_.extend({}, this.options, {
-        el: this.$el
+        el: this.$content
       }));
     },
 
