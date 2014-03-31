@@ -125,12 +125,19 @@ body .node-unpublished {
 
 
 
-
-
   // Breakpoints
   @media screen and (max-width: 768px) {
     .ls .categories-container ul li {
       width: 33.332%;
+    }
+
+    .ls .categories-container {
+      padding-top: .5em;
+
+      &::after {
+        background-position: bottom center;
+        background-size: 100% auto;
+      }
     }
   }
   @media screen and (max-width: 530px) {
