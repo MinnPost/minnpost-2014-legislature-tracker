@@ -243,7 +243,24 @@ define('minnpost-2014-legislature-tracker', [
       session: '2013-2014',
       OSKey: '49c5c72c157d4b37892ddb52c63d06be',
       eKey: '0AjYft7IGrHzNdE1LbFhMU25zYVdoV0lCVDlDZXI1Tnc',
-      legImageProxy: 'http://i-mage-proxerific.herokuapp.com/resize?size=100x100&url='
+      legImageProxy: 'http://i-mage-proxerific.herokuapp.com/resize?size=100x100&url=',
+      osBillParse: function(billD, app) {
+        billD.sources = _.map(billD.sources, function(b) {
+          if (b.url.match(/\.revisor\.mn\.gov/i)) {
+            b.text = 'Bill on MN Revisor of Statutes site';
+          }
+          return b;
+        });
+        return billD;
+      },
+      wordTranslations: {
+        sponsors: {
+          'Primary sponsors': 'Chief authors',
+          'primary sponsors': 'chief authors',
+          'Primary sponsor': 'Chief author',
+          'primary sponsor': 'chief author'
+        }
+      }
     }
 
   });
