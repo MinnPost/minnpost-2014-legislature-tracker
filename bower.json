@@ -23,6 +23,6 @@
     "requirejs": "~2.1.11",
     "text": "~2.0.10",
     "underscore": "~1.6.0",
-    "legislature-tracker": "https://github.com/MinnPost/legislature-tracker.git#master"
+    "legislature-tracker": "master"
   }
 }

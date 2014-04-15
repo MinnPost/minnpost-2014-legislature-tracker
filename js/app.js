@@ -21,7 +21,7 @@ require.config({
     'text': '../bower_components/text/text',
     'jquery': '../bower_components/jquery/dist/jquery.min',
     'underscore': '../bower_components/underscore/underscore',
-    'backbone': '../bower_components/backbone/backbone',
+    'Backbone': '../bower_components/backbone/backbone',
     'tabletop': '../bower_components/tabletop/src/tabletop',
     'Ractive': '../bower_components/ractive/build/Ractive-legacy.min',
     'Ractive-events-tap': '../bower_components/ractive-events-tap/Ractive-events-tap.min',
@@ -34,10 +34,10 @@ require.config({
 
 // Create main application
 define('minnpost-2014-legislature-tracker', [
-  'jquery', 'underscore', 'helpers', 'LT',
+  'jquery', 'underscore', 'LT',
   'text!templates/application.mustache'
 ], function(
-    $, _, helpers, LT, tApplication
+    $, _, LT, tApplication
   ) {
 
   // Constructor for app

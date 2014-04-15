@@ -3,7 +3,7 @@
  * Helpers functions such as formatters or extensions
  * to libraries.
  */
-define('helpers', ['jquery', 'underscore', 'backbone'],
+define('helpers', ['jquery', 'underscore', 'Backbone'],
   function($, _, Backbone) {
 
 
